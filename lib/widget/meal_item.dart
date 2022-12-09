@@ -1,6 +1,6 @@
 import 'package:deli_meals/models/meal.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -54,7 +54,12 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          MealDetailScreen.routeName,
+          arguments: id,
+        );
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
